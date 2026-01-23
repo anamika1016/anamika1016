@@ -1,0 +1,18 @@
+wb = xlsx_package.workbook
+
+wb.add_worksheet(name: "Departments") do |sheet|
+  # Updated headers to include Employee Name and proper column mapping
+  sheet.add_row [ "Department", "Employee Name", "Employee Code", "Theme Name", "Activity Name", "Unit", "Weight" ]
+
+  @user_details.each do |user_detail|
+    sheet.add_row [
+      user_detail.department_type,
+      user_detail.employee_name,
+      user_detail.employee_code,
+      user_detail.theme_name,
+      user_detail.activity_name,
+      user_detail.unit,
+      user_detail.weight
+    ]
+  end
+end

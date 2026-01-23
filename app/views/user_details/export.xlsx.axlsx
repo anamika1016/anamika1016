@@ -1,0 +1,22 @@
+wb = xlsx_package.workbook
+
+wb.add_worksheet(name: "User Details") do |sheet|
+  sheet.add_row [
+    "Department", "Employee Name", "Employee Email", "Employee Code", "Mobile Number",
+    "Activity", "Theme", "Unit", "Weightage"
+  ]
+
+  @user_details.each do |ud|
+    sheet.add_row [
+      ud.department&.department_type,
+      ud.employee_detail&.employee_name,
+      ud.employee_detail&.employee_email,
+      ud.employee_detail&.employee_code,
+      ud.employee_detail&.mobile_number,
+      ud.activity&.activity_name,
+      ud.activity&.theme_name,
+      ud.activity&.unit,
+      ud.activity&.weight
+    ]
+  end
+end
