@@ -1,40 +1,42 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  username: postgres
-  password: postgres
-  host: localhost
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  host: localhost
 
 development:
   <<: *default
-  database: myapp_development   # 🔄 changed
+  database: myapp_development
+  username: postgres
+  password: postgres
 
 test:
   <<: *default
-  database: myapp_test          # 🔄 changed
+  database: myapp_test
+  username: postgres
+  password: postgres
 
 production:
   primary:
-    adapter: postgresql
-    encoding: unicode
-    database: myapp_primary_production   # 🔄 changed
-    pool: 5
-    username: myuser
-    password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>
-    host: localhost
+    <<: *default
+    database: myapp_primary_production
+    username: deployer
+    password: Bhopal*1!asa
 
   cable:
-    adapter: postgresql
-    encoding: unicode
-    database: myapp_cable_production     # 🔄 changed
-    pool: 5
-    username: myuser
-    password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>
-    host: localhost
+    <<: *default
+    database: myapp_cable_production
+    username: deployer
+    password: Bhopal*1!asa
 
-  # Optional: remove this block if not needed
-  <<: *default
-  database: myapp_production             # 🔄 changed
-  username: <%= ENV['PG_USERNAME'] || 'postgres' %>
-  password: <%= ENV['PG_PASSWORD'] || 'postgres' %>
+  queue:
+    <<: *default
+    database: myapp_queue_production
+    username: deployer
+    password: Bhopal*1!asa
+
+  cache:
+    <<: *default
+    database: myapp_cache_production
+    username: deployer
+    password: Bhopal*1!asa
