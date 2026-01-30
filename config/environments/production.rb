@@ -91,6 +91,10 @@ Rails.application.configure do
 
   # allow your domain
   config.hosts << "kra.ploughmanagro.com"
+  # Allow your server IP and localhost
+  config.hosts << "139.59.45.69"
+  config.hosts << "0.0.0.0"
+  config.hosts << "localhost"
 
 
 
