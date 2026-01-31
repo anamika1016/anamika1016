@@ -1,0 +1,24 @@
+# Ignore bundler config.
+/.bundle
+
+# Ignore all logfiles and tempfiles.
+/log/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
+
+# Ignore uploaded files in storage.
+/storage/*
+!/storage/.keep
+
+# Ignore master key for decrypting credentials and symlinks.
+/config/master.key
+
+# Ignore node modules.
+/node_modules
+
+# Ignore public assets.
+/public/assets
+
+# Ignore coverage results.
+/coverage
